@@ -1,7 +1,7 @@
 #import "SceneDelegate.h"
 
 @interface SceneDelegate ()
-
+@property (nonatomic, strong) UIWindow *intercomWindow;
 @end
 
 @implementation SceneDelegate
@@ -11,17 +11,19 @@
 
     UIWindowScene *windowScene = (UIWindowScene *)scene;
     
-    UIWindow *intercomWindow = [[UIWindow alloc] initWithWindowScene:windowScene];
-    intercomWindow.rootViewController = [UIViewController new];
-    intercomWindow.rootViewController.view.backgroundColor = [UIColor yellowColor];
-    intercomWindow.tag = 1;
-    [intercomWindow makeKeyAndVisible];
+    
     
     self.window = [[UIWindow alloc] initWithWindowScene:windowScene];
     self.window.rootViewController = [UIViewController new];
     self.window.rootViewController.view.backgroundColor = [UIColor greenColor];
     self.window.tag = 2;
     [self.window makeKeyAndVisible];
+    
+    self.intercomWindow = [[UIWindow alloc] initWithWindowScene:windowScene];
+    self.intercomWindow.rootViewController = [UIViewController new];
+    self.intercomWindow.rootViewController.view.backgroundColor = [UIColor yellowColor];
+    self.intercomWindow.tag = 1;
+    [self.intercomWindow makeKeyAndVisible];
     
     NSLog(@"Windows: %@", windowScene.windows);
 }
